@@ -1,0 +1,15 @@
+{
+  "expo": {
+    "name": "Reto 21 Días",
+    "slug": "reto-21-dias",
+    "scheme": "reto21dias",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "android": {
+      "package": "com.estudiante.reto21dias"
+    },
+    "plugins": ["expo-router"],
+    "experiments": { "typedRoutes": true }
+  }
+}
