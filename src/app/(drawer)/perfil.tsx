@@ -1,3 +1,4 @@
+
 import { View, Switch, StyleSheet } from 'react-native';
 import ThemedView, { useAppTheme } from '../../components/ThemedView';
 import ThemedText from '../../components/ThemedText';
@@ -5,61 +6,40 @@ import ThemedText from '../../components/ThemedText';
 // Pantalla de Perfil y Ajustes.
 export default function ProfileScreen() {
 
-  // Obtenemos los colores, el estado del tema y la función para cambiarlo.
-  const {
-    colors,       // Colores del tema actual.
-    dark,         // true = modo oscuro; false = modo claro.
-    toggleTheme   // Función que cambia entre los dos temas.
-  } = useAppTheme();
+  // Obtiene los colores, el estado del tema y la función para cambiarlo.
+  const { colors, dark, toggleTheme } = useAppTheme();
 
-  // Devuelve los elementos que se muestran en la pantalla.
   return (
-
-    // Contenedor principal que adapta su fondo al tema.
     <ThemedView style={styles.content}>
 
-      {/* Muestra el título de la pantalla. */}
       <ThemedText heading>
         Perfil / Ajustes
       </ThemedText>
 
-      {/* Contenedor de la opción para cambiar el tema. */}
+      {/* Contenedor de la opción de modo oscuro. */}
       <View
         style={[
-          styles.option, // Aplica el diseño general de la opción.
+          styles.option,
           {
-            backgroundColor: colors.card, // Fondo según el tema.
-            borderColor: colors.border    // Borde según el tema.
-          }
+            backgroundColor: colors.card,
+            borderColor: colors.border,
+          },
         ]}
       >
-
-        {/* Contenedor del título y la descripción. */}
         <View style={styles.textBox}>
-
-          {/* Muestra el nombre de la opción. */}
           <ThemedText style={styles.title}>
             Modo oscuro
           </ThemedText>
 
-          {/* Muestra la descripción con color secundario. */}
-          <ThemedText
-            secondary
-            style={styles.subtitle}
-          >
+          <ThemedText secondary style={styles.subtitle}>
             Cambiar entre tema claro y oscuro
           </ThemedText>
-
         </View>
 
-        {/* Interruptor que permite activar o desactivar el modo oscuro. */}
+        {/* Interruptor que cambia entre modo claro y oscuro. */}
         <Switch
-          value={dark} // Indica si el interruptor está activado.
-
-          // Ejecuta la función que cambia el tema.
+          value={dark}
           onValueChange={toggleTheme}
-
-          // Color del interruptor cuando está activado.
           trackColor={{ true: colors.accent }}
         />
 
@@ -69,38 +49,33 @@ export default function ProfileScreen() {
   );
 }
 
-// Estilos de la pantalla Perfil / Ajustes.
+// Estilos de la pantalla.
 const styles = StyleSheet.create({
 
-  // Estilo del contenedor principal.
   content: {
-    padding: 18, // Espacio interior de la pantalla.
+    padding: 18,
   },
 
-  // Estilo de la opción para cambiar el tema.
   option: {
-    marginTop: 22,        // Separación respecto al título.
-    padding: 18,          // Espacio interior.
-    borderWidth: 1,       // Grosor del borde.
-    borderRadius: 15,     // Esquinas redondeadas.
-    flexDirection: 'row', // Coloca textos e interruptor horizontalmente.
-    alignItems: 'center', // Centra los elementos verticalmente.
+    marginTop: 22,
+    padding: 18,
+    borderWidth: 1,
+    borderRadius: 15,
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 
-  // Estilo del contenedor de los textos.
   textBox: {
-    flex: 1, // Ocupa el espacio disponible antes del interruptor.
+    flex: 1,
   },
 
-  // Estilo del título "Modo oscuro".
   title: {
-    fontWeight: '700', // Letra en negrita.
+    fontWeight: '700',
   },
 
-  // Estilo de la descripción.
   subtitle: {
-    marginTop: 5, // Separación respecto al título.
-    fontSize: 12, // Tamaño de letra.
+    marginTop: 5,
+    fontSize: 12,
   },
 
 });

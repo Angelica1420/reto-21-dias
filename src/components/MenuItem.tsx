@@ -45,13 +45,12 @@ export default function MenuItem({
         }
       ]}
     >
-
-      {/* Mostramos el icono del menú. */}
-      <Ionicons
-        name={icon}          // Nombre del icono recibido.
-        size={21}            // Tamaño del icono.
-        color={colors.accent} // Color según el tema.
-      />
+{/* Mostramos el icono recibido del menú. */}
+<Ionicons
+  name={icon}
+  size={21}
+  color={colors.accent}
+/>
 
       {/* Mostramos el texto del menú. */}
       <ThemedText style={styles.label}>
